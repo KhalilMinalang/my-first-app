@@ -19,6 +19,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   // data binding
-  name = 'Max';
   title = 'title';
 }
