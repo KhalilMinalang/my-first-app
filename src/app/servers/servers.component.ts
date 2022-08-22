@@ -27,7 +27,8 @@ export class ServersComponent implements OnInit {
   logs: Array<Number> = [];
   // max's solution
   showSecret = false;
-  log: Array<Number> = [];
+  // log: Array<Number> = [];
+  log: any = [];
 
   constructor() {
     setTimeout(() => {
@@ -61,6 +62,7 @@ export class ServersComponent implements OnInit {
 
   onToggleDetails() {
     this.showSecret = !this.showSecret;
-    this.log.push(this.log.length + 1);
+    // this.log.push(this.log.length + 1);
+    this.log.push(new Date());
   }
 }
