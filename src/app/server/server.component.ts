@@ -5,6 +5,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-server',
   templateUrl: './server-component.html',
+  styles: [
+    `
+      .online {
+        color: white;
+      }
+    `,
+  ],
 })
 
 // a component is actually a TS class angular is able to instantiate it would create an object based on the blueprint
