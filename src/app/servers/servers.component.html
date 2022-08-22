@@ -18,3 +18,9 @@
 <p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
+
+<!-- my solutions -->
+<hr />
+<input type="text" [(ngModel)]="username" />
+<button [disabled]="!username" (click)="username = ''">Reset</button>
+<p>{{ username }}</p>
