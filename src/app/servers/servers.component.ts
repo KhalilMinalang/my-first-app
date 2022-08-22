@@ -21,10 +21,13 @@ export class ServersComponent implements OnInit {
   servers = ['Testserver', 'Testserver 2'];
 
   username = '';
-  logs: Array<Number> = [];
 
-  //
+  // my solution
   displayParagraph = false;
+  logs: Array<Number> = [];
+  // max's solution
+  showSecret = false;
+  log: Array<Number> = [];
 
   constructor() {
     setTimeout(() => {
@@ -54,5 +57,10 @@ export class ServersComponent implements OnInit {
     this.displayParagraph = this.displayParagraph ? false : true;
     // this.logs.push(Date.now().toString());
     this.logs.push(this.logs.length + 1);
+  }
+
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length + 1);
   }
 }
