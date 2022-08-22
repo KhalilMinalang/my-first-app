@@ -21,6 +21,10 @@ export class ServersComponent implements OnInit {
   servers = ['Testserver', 'Testserver 2'];
 
   username = '';
+  logs: Array<Number> = [];
+
+  //
+  displayParagraph = false;
 
   constructor() {
     setTimeout(() => {
@@ -44,5 +48,11 @@ export class ServersComponent implements OnInit {
     // this.serverName = event.target.value;
     // explicit
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  buttonClick() {
+    this.displayParagraph = this.displayParagraph ? false : true;
+    // this.logs.push(Date.now().toString());
+    this.logs.push(this.logs.length + 1);
   }
 }

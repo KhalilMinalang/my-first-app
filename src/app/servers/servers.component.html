@@ -25,3 +25,21 @@
 <!-- <app-server></app-server> -->
 <!-- loop -->
 <app-server *ngFor="let server of servers"> </app-server>
+
+<!-- my assignment solution -->
+<hr />
+<button class="btn btn-primary" (click)="buttonClick()">Display Details</button>
+<p [ngClass]="{ hide: displayParagraph === false }">Secret Password = tuna</p>
+<!-- <p *ngFor="let log of logs" [ngClass]="{ 'after-5': logs.length + 1 > 4 }">
+  {{ log }}
+</p> -->
+<div *ngFor="let log of logs">
+  <p *ngIf="logs.length + 1 <= 5; else after5">
+    {{ log }}
+  </p>
+  <ng-template #after5>
+    <p class="after-5">
+      {{ log }}
+    </p>
+  </ng-template>
+</div>
