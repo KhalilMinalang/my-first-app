@@ -18,6 +18,7 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No server was created!';
   serverName = 'Testserver';
   serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
 
   username = '';
 
@@ -32,6 +33,7 @@ export class ServersComponent implements OnInit {
   // you don't have to follow the naming convention, but it would've been better if you do
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus =
       'Server was created! Name is ' + this.serverName;
   }
