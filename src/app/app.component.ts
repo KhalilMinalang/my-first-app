@@ -4,20 +4,19 @@ import { Component } from '@angular/core';
   // tag name
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // styleUrls: [
-  //   './app.component.css',
-  //   // you can add additional stylesheets here
-  // ],
-  // or you can pass CSS code as string:
-  styles: [
-    `
-      h3 {
-        color: dodgerblue;
-      }
-    `,
-  ],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // data binding
-  title = 'title';
+  // servers: any;
+  // servers = [];
+  servers: any = [];
+
+  onAddServer() {
+    this.servers.push('Another Server');
+  }
+
+  onRemoveServer(id: number) {
+    const position = id + 1;
+    this.servers.splice(position, 1);
+  }
 }
