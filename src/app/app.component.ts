@@ -7,18 +7,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // servers: any;
-  // servers = [];
-  servers: any = [];
+  // serverElements = [];
+  // newServerName = '';
+  // newServerContent = '';
+
+  // fix
+  serverElements: any = [];
+  newServerName: any = '';
+  newServerContent: any = '';
 
   onAddServer() {
-    this.servers.push('Another Server');
+    this.serverElements.push({
+      type: 'server',
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 
-  onRemoveServer(id: number) {
-    // const position = id + 1;
-    // my fix
-    const position = id;
-    this.servers.splice(position, 1);
+  onAddBlueprint() {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 }
