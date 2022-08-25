@@ -10,16 +10,25 @@ import {
   styleUrls: ['./server-element.component.css'],
 })
 export class ServerElementComponent implements OnInit {
+  // type definition
   // element: {
   //   type: string;
   //   name: string;
   //   content: string;
   // };
+  // element!: { type?: string; name?: string; content?: string };
   // fix
   // @Input() element?: { type: string; name: string; content: string;}
   // @Input() element?: { type?: string; name?: string; content?: string };
   // final
-  @Input() element!: { type?: string; name?: string; content?: string };
+  // @Input() element!: { type?: string; name?: string; content?: string };
+
+  // assigning an 'alias'
+  @Input('srvElement') element!: {
+    type?: string;
+    name?: string;
+    content?: string;
+  };
 
   constructor() {}
 
