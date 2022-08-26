@@ -2,7 +2,15 @@ import {
   Component,
   OnInit,
   Input,
-  ViewEncapsulation, // must be imported
+  ViewEncapsulation,
+  OnChanges,
+  SimpleChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy, // must be imported
 } from '@angular/core';
 
 @Component({
@@ -13,7 +21,17 @@ import {
   // encapsulation: ViewEncapsulation.None,
   // encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class ServerElementComponent implements OnInit {
+export class ServerElementComponent
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy
+{
   // type definition
   // element: {
   //   type: string;
@@ -33,8 +51,43 @@ export class ServerElementComponent implements OnInit {
     name?: string;
     content?: string;
   };
+  //
+  @Input() name!: string;
 
-  constructor() {}
+  constructor() {
+    console.log('constructor called!');
+  }
 
-  ngOnInit(): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges called!');
+    console.log(changes);
+  }
+
+  ngOnInit(): void {
+    console.log('ngOnInit called!');
+  }
+
+  ngDoCheck(): void {
+    console.log('ngDoCheck called!');
+  }
+
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit called!');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked called!');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit called!');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked called!');
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy called!');
+  }
 }
