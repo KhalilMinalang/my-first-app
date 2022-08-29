@@ -6,7 +6,7 @@ import { LogginService } from '../logging.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LogginService, AccountsService],
+  providers: [LogginService],
 })
 export class AccountComponent {
   @Input() account!: { name: string; status: string };
