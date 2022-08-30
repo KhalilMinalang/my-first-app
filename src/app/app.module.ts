@@ -5,11 +5,14 @@ import { FormsModule } from '@angular/forms'; // must be imported for [(ngModel)
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
+import { AccountsService } from './accounts.service';
+import { LogginService } from './logging.service';
 
 @NgModule({
   declarations: [AppComponent, AccountComponent, NewAccountComponent],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  //  provider's highest heirarchy level
+  providers: [AccountsService, LogginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

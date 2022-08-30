@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { AccountsService } from '../accounts.service';
-import { LogginService } from '../logging.service';
+// import { LogginService } from '../logging.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LogginService],
+  // providers: [LogginService],
 })
 export class AccountComponent {
   @Input() account!: { name: string; status: string };
@@ -17,7 +17,7 @@ export class AccountComponent {
   // }>();
 
   constructor(
-    private loggingService: LogginService,
+    //private loggingService: LogginService,
     private accountsService: AccountsService
   ) {}
 
@@ -26,6 +26,6 @@ export class AccountComponent {
     // console.log('A server status changed, new status: ' + status);
 
     this.accountsService.updateStatus(this.id, status);
-    this.loggingService.logStatusChange(status);
+    // this.loggingService.logStatusChange(status);
   }
 }
