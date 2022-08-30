@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // must be imported for [(ngModel)] directive
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -10,6 +11,21 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
+
+const appRoutes: Routes = [
+  {
+    path: '', // localhost:4200/
+    component: HomeComponent,
+  },
+  {
+    path: 'users', // localhost:4200/users
+    component: UsersComponent,
+  },
+  {
+    path: 'servers', // localhost:4200/users
+    component: ServersComponent,
+  },
+];
 
 @NgModule({
   declarations: [
@@ -21,7 +37,11 @@ import { ServersService } from './servers/servers.service';
     EditServerComponent,
     ServerComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes), // pass appRoutes as an argument
+  ],
   providers: [ServersService],
   bootstrap: [AppComponent],
 })
