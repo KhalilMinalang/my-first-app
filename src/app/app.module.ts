@@ -3,16 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // must be imported for [(ngModel)] directive
 
 import { AppComponent } from './app.component';
-import { AccountComponent } from './account/account.component';
-import { NewAccountComponent } from './new-account/new-account.component';
-import { AccountsService } from './accounts.service';
-import { LogginService } from './logging.service';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
 
 @NgModule({
-  declarations: [AppComponent, AccountComponent, NewAccountComponent],
+  declarations: [AppComponent, ActiveUsersComponent, InactiveUsersComponent],
   imports: [BrowserModule, FormsModule],
-  //  provider's highest heirarchy level
-  providers: [AccountsService, LogginService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
