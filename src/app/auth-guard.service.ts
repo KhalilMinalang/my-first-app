@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  CanActivateChild,
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
@@ -10,12 +11,12 @@ import { AuthService } from './auth.service';
 
 // CanActivate is an interface
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    router: RouterStateSnapshot
+    state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return this.authService.isAuthenticated().then((authenticated: boolean) => {
       if (authenticated) {
@@ -24,5 +25,12 @@ export class AuthGuard implements CanActivate {
         return this.router.navigate(['/']);
       }
     });
+  }
+
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    return this.canActivate(route, state);
   }
 }

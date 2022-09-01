@@ -30,7 +30,9 @@ const appRoutes: Routes = [
   {
     path: 'servers', // localhost:4200/users
     // apply route guard
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
+    // apply route child guard
+    canActivateChild: [AuthGuard],
     component: ServersComponent,
     children: [
       {
