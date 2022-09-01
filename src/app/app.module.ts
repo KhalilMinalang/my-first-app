@@ -54,6 +54,7 @@ const appRoutes: Routes = [
   {
     path: '**',
     redirectTo: '/not-found',
+    pathMatch: 'full',
   },
 ];
 
