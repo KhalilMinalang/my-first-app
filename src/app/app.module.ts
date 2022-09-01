@@ -21,6 +21,11 @@ const appRoutes: Routes = [
     path: 'users', // localhost:4200/users
     component: UsersComponent,
   },
+  // passing a parameter
+  {
+    path: 'users/:id',
+    component: UserComponent,
+  },
   {
     path: 'servers', // localhost:4200/users
     component: ServersComponent,
