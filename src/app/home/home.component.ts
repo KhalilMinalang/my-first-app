@@ -28,9 +28,11 @@ export class HomeComponent implements OnInit {
 
   onLogin() {
     this.authService.login();
+    console.log('logged in');
   }
 
   onLogout() {
     this.authService.logout();
+    console.log('logged out');
   }
 }
