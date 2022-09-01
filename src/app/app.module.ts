@@ -20,23 +20,28 @@ const appRoutes: Routes = [
   {
     path: 'users', // localhost:4200/users
     component: UsersComponent,
+    children: [
+      // passing a parameter
+      {
+        path: ':id/:name',
+        component: UserComponent,
+      },
+    ],
   },
-  // passing a parameter
-  {
-    path: 'users/:id/:name',
-    component: UserComponent,
-  },
+
   {
     path: 'servers', // localhost:4200/users
     component: ServersComponent,
-  },
-  {
-    path: 'servers/:id',
-    component: ServerComponent,
-  },
-  {
-    path: 'servers/:id/edit',
-    component: EditServerComponent,
+    children: [
+      {
+        path: ':id',
+        component: ServerComponent,
+      },
+      {
+        path: ':id/edit',
+        component: EditServerComponent,
+      },
+    ],
   },
 ];
 
