@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   },
   // passing a parameter
   {
-    path: 'users/:id',
+    path: 'users/:id/:name',
     component: UserComponent,
   },
   {
