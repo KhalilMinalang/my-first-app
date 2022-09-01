@@ -30,6 +30,10 @@ const appRoutes: Routes = [
     path: 'servers', // localhost:4200/users
     component: ServersComponent,
   },
+  {
+    path: 'servers/:id/edit',
+    component: EditServerComponent,
+  },
 ];
 
 @NgModule({
