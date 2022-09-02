@@ -10,6 +10,7 @@ import { ServersComponent } from './servers/servers.component';
 import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [
   {
@@ -49,9 +50,16 @@ const appRoutes: Routes = [
   },
 
   // page not found
+  // {
+  //   path: 'not-found',
+  //   component: PageNotFoundComponent,
+  // },
   {
     path: 'not-found',
-    component: PageNotFoundComponent,
+    component: ErrorPageComponent,
+    data: {
+      message: 'Page not found!',
+    },
   },
   // wild card route MUST BE AT THE END
   {
