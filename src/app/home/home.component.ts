@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subscription, Observable } from 'rxjs';
+import { map, filter } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -37,20 +38,38 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-    this.firstObsSubscription = customIntervalObersvable.subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        // here, you could send it to your own back-end and store it in a database there
-        console.log(error);
-        alert(error.message);
-      },
-      // completed handler
-      () => {
-        console.log('Completed');
-      }
-    );
+    // operators (will not work)
+    // customIntervalObersvable.pipe(
+    //   map((data: any) => {
+    //     return 'Round: ' + (data + 1).toString();
+    //   })
+    // );
+
+    // will work when you paste here
+    this.firstObsSubscription = customIntervalObersvable
+      .pipe(
+        filter((data: any) => {
+          return data > 0;
+        }),
+        map((data: any) => {
+          return 'Round: ' + (data + 1).toString();
+        })
+      )
+      .subscribe(
+        (data) => {
+          console.log(data);
+          // console.log(`Round: ${data}`);
+        },
+        (error) => {
+          // here, you could send it to your own back-end and store it in a database there
+          console.log(error);
+          alert(error.message);
+        },
+        // completed handler
+        () => {
+          console.log('Completed');
+        }
+      );
   }
 
   ngOnDestroy(): void {
