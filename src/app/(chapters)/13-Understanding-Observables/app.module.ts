@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // must be imported for [(ngModel)] directive
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent, HomeComponent, UserComponent],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
