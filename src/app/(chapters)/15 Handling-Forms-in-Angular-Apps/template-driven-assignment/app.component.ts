@@ -7,5 +7,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  genders = ['male', 'female'];
+  subscriptions = ['Basic', 'Advanced', 'Pro'];
+  selectedSubscription = 'Advanced';
+  @ViewChild('signupForm', { static: false }) sgnForm!: NgForm;
+  onSubmit() {
+    console.log(this.sgnForm.value);
+  }
 }
