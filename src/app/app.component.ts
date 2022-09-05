@@ -16,12 +16,17 @@ export class AppComponent implements OnInit {
   //   email: new FormControl(null),
   //   gender: new FormControl('male'),
   // });
+  forbiddenUserames = ['Chris', 'Anna'];
 
   ngOnInit() {
     this.signupForm = new FormGroup({
       userData: new FormGroup({
         // add controls
-        username: new FormControl(null, Validators.required),
+        username: new FormControl(null, [
+          Validators.required,
+          // DO NOT CALL/EXECUTE FUNCTION
+          this.forbiddenName.bind(this), // CALL BIND TO REFER TO THIS CLASS
+        ]),
         email: new FormControl(null, [Validators.required, Validators.email]),
       }),
       gender: new FormControl('male'),
@@ -51,5 +56,15 @@ export class AppComponent implements OnInit {
   // fix 3
   get controls() {
     return (this.signupForm.get('hobbies') as FormArray).controls;
+  }
+
+  // {nameIsForbidden: true}
+  forbiddenName(control: FormControl): { [s: string]: boolean } | null {
+    if (this.forbiddenUserames.indexOf(control.value) !== -1) {
+      return {
+        nameIsForbidden: true,
+      };
+    }
+    return null;
   }
 }
