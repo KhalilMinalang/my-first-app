@@ -60,9 +60,24 @@
           >
             <input type="text" />
           </div> -->
-          <div
+          <!-- fix 1 -->
+          <!-- <div
             class="form-group"
             *ngFor="let hobbyControl of hobbies.controls; let i = index"
+          >
+            <input type="text" class="form-control" [formControlName]="i" />
+          </div> -->
+          <!-- fix 2 -->
+          <!-- <div
+            class="form-group"
+            *ngFor="let hobbyControl of getControls(); let i = index"
+          >
+            <input type="text" class="form-control" [formControlName]="i" />
+          </div> -->
+          <!-- fix 3 -->
+          <div
+            class="form-group"
+            *ngFor="let hobbyControl of controls; let i = index"
           >
             <input type="text" class="form-control" [formControlName]="i" />
           </div>
