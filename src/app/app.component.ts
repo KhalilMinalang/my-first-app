@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,5 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   genders = ['male', 'female'];
+  signupFom!: FormGroup;
 }
