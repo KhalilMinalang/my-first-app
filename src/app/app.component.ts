@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +17,13 @@ export class AppComponent implements OnInit {
     this.fetchPosts();
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
+  onCreatePost(postData: Post) {
     // Send Http request
     this.http
-      .post(
+      .post<{ name: string }>(
         'https://ng-complete-guide-54479-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
         postData
       )
-      .pipe()
       .subscribe((responseData) => {
         console.log(responseData);
       });
@@ -40,12 +40,15 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
     this.http
-      .get(
+      .get<{ [key: string]: Post }>(
         'https://ng-complete-guide-54479-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json'
       )
       .pipe(
-        map((responseData: any) => {
-          const postsArray = [];
+        // this not working
+        // map((responseData: { [key: string]: Post }) => {
+        // so used this instead
+        map((responseData) => {
+          const postsArray: Post[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               postsArray.push({ ...responseData[key], id: key });
