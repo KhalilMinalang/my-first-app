@@ -39,4 +39,10 @@ export class PostsService {
         })
       );
   }
+
+  deletePosts() {
+    return this.http.delete(
+      'https://ng-complete-guide-54479-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json'
+    );
+  }
 }
