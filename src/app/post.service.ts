@@ -44,7 +44,8 @@ export class PostsService {
     searchParams = searchParams.append('custom', 'key');
 
     return this.http
-      .get<{ [key: string]: Post }>(
+      .get<{ [key: string]: Post }>( // IF NOT CAST BACK TO GENERIC
+        // .get(
         'https://ng-complete-guide-54479-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
@@ -52,6 +53,8 @@ export class PostsService {
           // params: new HttpParams().set('print', 'pretty'),
           // multiple params
           params: searchParams,
+          // responseType: 'text', // THIS WILL TRIGGER ERROR
+          responseType: 'json', // DEFAULT
         }
       )
       .pipe(
@@ -79,9 +82,13 @@ export class PostsService {
       .delete(
         'https://ng-complete-guide-54479-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
         {
+          // configure observe mode
           // observe: 'body',
           // observe: 'response',
           observe: 'events',
+          // configure response type
+          // responseType: 'json', // DEFAULT
+          responseType: 'text', // CONVERT RESPONSE TO TEXT
         }
       )
       .pipe(
