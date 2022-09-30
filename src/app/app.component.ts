@@ -5,6 +5,7 @@ import {
   style,
   transition,
   trigger,
+  group,
 } from '@angular/animations';
 import { Component } from '@angular/core';
 
@@ -147,13 +148,22 @@ import { Component } from '@angular/core';
         ),
       ]),
       transition('* => void', [
-        animate(
-          300,
-          style({
-            transform: 'translateX(100px)',
-            opacity: 0,
-          })
-        ),
+        group([
+          // animation order matters
+          animate(
+            300,
+            style({
+              color: 'red',
+            })
+          ),
+          animate(
+            800,
+            style({
+              transform: 'translateX(100px)',
+              opacity: 0,
+            })
+          ),
+        ]),
       ]),
     ]),
   ],
