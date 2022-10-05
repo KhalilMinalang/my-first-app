@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
     age = 12;
 
-    let userName: string;
+    let userName: string | string[];
 
     userName = 'Max';
 
@@ -52,8 +52,8 @@ export class AppComponent implements OnInit {
     }[];
 
     // Type inference
-    let course = 'React - The Completed Guide';
+    let course: string | number = 'React - The Completed Guide';
 
-    // course = 12341;
+    course = 12341;
   }
 }
