@@ -7,13 +7,22 @@ import { Component, Injector, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    //
-    function add(a: number, b: number) {
-      return a + b;
-    }
+    // Primitives: number, string , boolean
+    // More complex types: arrays, objects
+    // Function types, parameters
 
-    const result = add(2, 5);
+    // Primitives
 
-    console.log(result);
+    let age: number;
+
+    age = 12;
+
+    let userName: string;
+
+    userName = 'Max';
+
+    let isInstructor: boolean;
+
+    isInstructor = true;
   }
 }
