@@ -50,5 +50,10 @@ export class AppComponent implements OnInit {
       name: 'Max';
       age: 32;
     }[];
+
+    // Type inference
+    let course = 'React - The Completed Guide';
+
+    // course = 12341;
   }
 }
