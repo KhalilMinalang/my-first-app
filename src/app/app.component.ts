@@ -121,5 +121,32 @@ export class AppComponent implements OnInit {
     student.listCourses();
 
     console.log(student);
+
+    interface Human {
+      // type Human = {
+      firstName: string;
+      age: number;
+
+      greet: () => void;
+    }
+
+    let max: Human;
+
+    max = {
+      firstName: 'Max',
+      age: 32,
+      greet() {
+        console.log('Hello!');
+      },
+    };
+
+    class Instructor implements Human {
+      firstName!: string;
+      age!: number;
+      // greet!: () => void;
+      greet() {
+        console.log('Hello!!!!');
+      }
+    }
   }
 }
