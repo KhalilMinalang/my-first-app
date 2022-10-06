@@ -62,5 +62,15 @@ export class AppComponent implements OnInit {
     let course: string | number = 'React - The Completed Guide';
 
     course = 12341;
+
+    // Functions & types
+
+    function add(a: number, b: number): number | string {
+      return a + b;
+    }
+
+    function print(value: any): void {
+      console.log(value);
+    }
   }
 }
