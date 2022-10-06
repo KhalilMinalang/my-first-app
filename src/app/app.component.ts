@@ -88,5 +88,38 @@ export class AppComponent implements OnInit {
     // console.log(updatedArray);
     // console.log(stringArray);
     // updatedArray[0].split('');
+
+    class Student {
+      // firstName!: string;
+      // lastName!: string;
+      // age!: number;
+      // private courses!: string[];
+
+      constructor(
+        public firstName: string,
+        public lastName: string,
+        public age: number,
+        private courses: string[]
+      ) {
+        // this.firstName = first;
+        // this.lastName = last;
+        // this.age = age;
+        // this.courses = courses;
+      }
+
+      enroll(courseName: string) {
+        this.courses.push(courseName);
+      }
+
+      listCourses() {
+        return this.courses.slice();
+      }
+    }
+
+    const student = new Student('Max', 'Schwarz', 32, ['Angular']);
+    student.enroll('React');
+    student.listCourses();
+
+    console.log(student);
   }
 }
