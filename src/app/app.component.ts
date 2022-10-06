@@ -31,11 +31,17 @@ export class AppComponent implements OnInit {
 
     hobbies = ['Sports', 'Cooking'];
 
-    // let person: any;
-    let person: {
+    type Person = {
       name: string;
       age: number;
     };
+
+    // let person: any;
+    // let person: {
+    //   name: string;
+    //   age: number;
+    // };
+    let person: Person;
 
     person = {
       name: 'Max',
@@ -46,10 +52,11 @@ export class AppComponent implements OnInit {
     //   isEmployee: true,
     // };
 
-    let people: {
-      name: 'Max';
-      age: 32;
-    }[];
+    // let people: {
+    //   name: 'Max';
+    //   age: 32;
+    // }[];
+    let people: Person[];
 
     // Type inference
     let course: string | number = 'React - The Completed Guide';
